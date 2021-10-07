@@ -251,7 +251,7 @@
         <h3 class="column-title">We love to hear</h3>
         <!-- contact form works with formspree.io  -->
         <!-- contact form activation doc: https://docs.themefisher.com/constra/contact-form/ -->
-        <form id="contact-form" action="#" method="post" role="form">
+        <form id="contact-form" method="post" role="form">
           <div class="error-container"></div>
           <div class="row">
             <div class="col-md-4">
@@ -280,7 +280,7 @@
               required></textarea>
           </div>
           <div class="text-right"><br>
-            <button class="btn btn-primary solid blank" type="submit">Send Message</button>
+            <button class="btn btn-primary solid blank" type="submit" onclick="sendEmail()">Send Message</button>
           </div>
         </form>
       </div>
@@ -356,7 +356,7 @@
       </div><!-- Row end -->
 
       <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
-        <button class="btn btn-primary" title="Back to Top" onclick="sendEmail()">
+        <button class="btn btn-primary" title="Back to Top">
           <i class="fa fa-angle-double-up"></i>
         </button>
       </div>
@@ -394,41 +394,41 @@
 
   <script type="text/javascript">
     function sendEmail() {
-      // Email.send({
-      //   Host: "smtp.gmail.com",
-      //   Username: "snehalprecast@gmail.com",
-      //   Password: "October@2021",
-      //   To: 'snehalprecast@gmail.com',
-      //   From: "snehalprecast@gmail.com",
-      //   Subject: "Sending Email using javascript",
-      //   Body: "Well that was easy!!",
-      // })
-      //   .then(function (message) {
-      //     alert("mail sent successfully")
-      //   });
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "snehalprecast@gmail.com",
+        Password: "October@2021",
+        To: 'snehalprecast@gmail.com',
+        From: "snehalprecast@gmail.com",
+        Subject: "Sending Email using javascript",
+        Body: "Well that was easy!!",
+      })
+        .then(function (message) {
+          alert("mail sent successfully")
+        });
 
-      Email = {
-      send: function (t, e, o, n, d, r, c) {
-        var a = Math.floor(1e6 * Math.random() + 1),
-        m = "http://smtpjs.com/smtp.aspx?";
-        m += "From=" + t,
-        m += "&to=" + e,
-        m += "&Subject=" + encodeURIComponent(o),
-        m += "&Body=" + encodeURIComponent(n),
-        void 0 == d.token ?
-          (m += "&Host=" + d, m += "&Username=" + r, m += "&Password=" + c, m += "&Action=Send") :
-          (m += "&SecureToken=" + d.token, m += "&Action=SendFromStored"),
-        m += "&cachebuster=" + a,
-        Email.addScript(m) 
-      },
-      addScript: function (t) {
-        var e = document.createElement("link");
-        e.setAttribute("rel", "stylesheet"),
-        e.setAttribute("type", "text/xml"),
-        e.setAttribute("href", t),
-        document.body.appendChild(e)
-      }
-    };
+    //   Email = {
+    //   send: function (t, e, o, n, d, r, c) {
+    //     var a = Math.floor(1e6 * Math.random() + 1),
+    //     m = "http://smtpjs.com/smtp.aspx?";
+    //     m += "From=" + t,
+    //     m += "&to=" + e,
+    //     m += "&Subject=" + encodeURIComponent(o),
+    //     m += "&Body=" + encodeURIComponent(n),
+    //     void 0 == d.token ?
+    //       (m += "&Host=" + d, m += "&Username=" + r, m += "&Password=" + c, m += "&Action=Send") :
+    //       (m += "&SecureToken=" + d.token, m += "&Action=SendFromStored"),
+    //     m += "&cachebuster=" + a,
+    //     Email.addScript(m) 
+    //   },
+    //   addScript: function (t) {
+    //     var e = document.createElement("link");
+    //     e.setAttribute("rel", "stylesheet"),
+    //     e.setAttribute("type", "text/xml"),
+    //     e.setAttribute("href", t),
+    //     document.body.appendChild(e)
+    //   }
+    // };
     }
   </script>
   </div><!-- Body inner end -->
