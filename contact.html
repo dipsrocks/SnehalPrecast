@@ -356,7 +356,7 @@
       </div><!-- Row end -->
 
       <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
-        <button class="btn btn-primary" title="Back to Top">
+        <button class="btn btn-primary" title="Back to Top" onclick="sendEmail()">
           <i class="fa fa-angle-double-up"></i>
         </button>
       </div>
@@ -386,10 +386,28 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
 
+
+  <script type="text/javascript">
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "priteshbonde@gmail.com",
+        Password: "trickgame@1989",
+        To: 'priteshbonde@gmail.com',
+        From: "priteshbonde@gmail.com",
+        Subject: "Sending Email using javascript",
+        Body: "Well that was easy!!",
+      })
+        .then(function (message) {
+          alert("mail sent successfully")
+        });
+    }
+  </script>
   </div><!-- Body inner end -->
   </body>
 
