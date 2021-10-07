@@ -219,7 +219,7 @@
           </span>
           <div class="ts-service-box-content">
             <h4>Email Us</h4>
-            <p>office@gmail.com</p>
+            <p>snehalprecast@gmail.com</p>
           </div>
         </div>
       </div><!-- Col 2 end -->
@@ -395,54 +395,32 @@
 
 
   <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlOzviC0F5_8IzVqUHkqz5MrAHYb6zORs&callback=initMap" defer></script>
   <!-- Google Map Plugin-->
   <script src="plugins/google-map/map.js" defer></script>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
 
-
   <script type="text/javascript">
-    function sendEmail() {
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: "snehalprecast@gmail.com",
-        Password: "October@2021",
-        To: 'snehalprecast@gmail.com',
-        From: "snehalprecast@gmail.com",
-        Subject: "Sending Email using javascript",
-        Body: "Well that was easy!!",
-      })
-        .then(function (message) {
-          alert("mail sent successfully")
-        });
-
-    //   Email = {
-    //   send: function (t, e, o, n, d, r, c) {
-    //     var a = Math.floor(1e6 * Math.random() + 1),
-    //     m = "http://smtpjs.com/smtp.aspx?";
-    //     m += "From=" + t,
-    //     m += "&to=" + e,
-    //     m += "&Subject=" + encodeURIComponent(o),
-    //     m += "&Body=" + encodeURIComponent(n),
-    //     void 0 == d.token ?
-    //       (m += "&Host=" + d, m += "&Username=" + r, m += "&Password=" + c, m += "&Action=Send") :
-    //       (m += "&SecureToken=" + d.token, m += "&Action=SendFromStored"),
-    //     m += "&cachebuster=" + a,
-    //     Email.addScript(m) 
-    //   },
-    //   addScript: function (t) {
-    //     var e = document.createElement("link");
-    //     e.setAttribute("rel", "stylesheet"),
-    //     e.setAttribute("type", "text/xml"),
-    //     e.setAttribute("href", t),
-    //     document.body.appendChild(e)
-    //   }
-    // };
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const uluru = { lat: 18.647528, lng: 73.887784 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: uluru,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+      });
     }
-  </script>
+
+</script>
+  
   </div><!-- Body inner end -->
   </body>
 
